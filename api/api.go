@@ -32,10 +32,15 @@ type PlayOutcome struct {
 // StartGameServer calls and runs a default gin server and assigns the only post handler
 // (we use the gin library, more practical and expressive than the standard go http libraries)
 func StartGameServer() {
+	// some initialization to use game library
+	InitAPI()
+
 	// default gin router (logger and recovery functions)
 	r := gin.Default()
+
 	// just need one post handler to submit movement and get outcome
 	r.POST("/play", PlayGame)
+
 	r.Run(port)
 }
 
