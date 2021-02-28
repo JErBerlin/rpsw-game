@@ -6,13 +6,16 @@ import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"strings"
+	"time"
 )
 
 const port = ":8080"
 
 func main() {
+	InitComputerPlayer()
 	StartGameServer()
 }
 
@@ -53,7 +56,7 @@ func PlayGame(c *gin.Context) {
 		return
 	}
 
-	computerMove := Rock // pure strategy
+	computerMove := ComputerChooseMove()
 	outcome := Game(playerMove, computerMove).String()
 
 	playOutcome := PlayOutcome{
@@ -81,4 +84,16 @@ func MakeMoveFromJSON(reqJSON []byte) (Move, error) {
 		return Scissors, nil
 	}
 	return 0, fmt.Errorf("throw requested is not a valid move")
+}
+
+// ComputerChooseMove returns a randomly generated move according
+// a given strategy
+func ComputerChooseMove() Move {
+	// mixed strategy: equiprobable
+	return Move(rand.Intn(int(MovesLength)))
+}
+
+// InitComputerPlayer initialize the random seed to be used later
+func InitComputerPlayer() {
+	rand.Seed(time.Now().Unix())
 }
