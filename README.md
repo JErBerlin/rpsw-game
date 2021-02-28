@@ -2,20 +2,16 @@
 
 ### Overview
 
-This is a game server that offers the possibility
+This is a game server that offers the possibility to play _rock, paper, scissors, well_ against the computer by means of a post request to its API
 
-    1. to play rock, paper, scissors against the computer
-
-    2. by means of a post request to its API
-
-The rock-paper-scissors-well game is a variation of the rock-paper-scissors game:
+The _rock, paper, scissors, well_ game is a variation of the classical _rock, paper, scissors_ game:
 
 - Scissors beats paper
 - Paper beats rock and well
 - Rock beats scissors
 - Well beats rock and scissors
 
-You can read articles discussing hte r-p-s game and its generalizations here:
+You can read more about this game here:
 
 - [Circulant games](https://link.springer.com/article/10.1007/s11238-014-9478-4)
 - [Rock, Paper, Scissors, Well](https://math.stackexchange.com/questions/410558/rock-paper-scissors-well)
@@ -23,6 +19,8 @@ You can read articles discussing hte r-p-s game and its generalizations here:
 ## How to run..
 
 If you have Go installed on your computer, you can just get this repository and run this game locally (you can install the go compiler here: https://golang.org/doc/install).
+
+If you would not like to install a Go compiler, please read further in the section about how to run the application in a docker container. 
 
 ###  the tests
 
@@ -54,7 +52,7 @@ You should specify a valid move in JSON format in the body of the request: for i
 
 Valid moves are: "rock", "paper", "scissors" and "well". (The API is case insensitive.)
 
-### How to run the app in the Docker image
+### How to run the app from the Docker image
 
 There is a provided Dockerfile to run the application in a docker container.
 

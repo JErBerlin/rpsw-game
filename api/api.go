@@ -1,4 +1,4 @@
-// api package provides a the rest api to play the game rock, paper, scissors.
+// api package provides the rest api to play the game rock, paper, scissors.
 // It provides a server start function and a handler for a play post request
 package api
 
@@ -23,7 +23,7 @@ type PlayRequest struct {
 	Throw string
 }
 
-// PlayRequest has information about the outcome of the game and which was the computer move
+// PlayOutcome has information about the outcome of the game and which was the computer move
 type PlayOutcome struct {
 	Outcome      string
 	ComputerMove string
