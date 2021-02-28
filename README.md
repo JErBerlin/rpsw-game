@@ -15,3 +15,19 @@ The rock, paper, scissors game:
 - Scissors beats paper
 - Paper beats rock and well
 - Rock beats scissors
+
+### How to use it
+
+### Accessing public and private API for posting, viewing and editing a single message
+
+When testing locally, the API will be listening and serving http at port 8080 of the localhost.
+
+- to send your move, make a POST request at http://localhost:8080/play
+
+You should specify a valid move in JSON format in the body of the request: for instance,
+
+`{
+"Throw": "paper"
+}`
+
+Valid moves are: "rock", "paper" and "scissors". (The API is case insensitive.)
