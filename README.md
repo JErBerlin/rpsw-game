@@ -1,4 +1,4 @@
-## A server to play the classic Rock-Paper-Scissors game
+## A server to play the Rock-Paper-Scissors-Well game
 
 ### Overview
 
@@ -8,11 +8,17 @@ This is a game server that offers the possibility
 
     2. by means of a post request to its API
 
-The rock, paper, scissors game:
+The rock-paper-scissors-well game is a variation of the rock-paper-scissors game:
 
 - Scissors beats paper
 - Paper beats rock and well
 - Rock beats scissors
+- Well beats rock and scissors
+
+You can read articles discussing hte r-p-s game and its generalizations here:
+
+- [Circulant games](https://link.springer.com/article/10.1007/s11238-014-9478-4)
+- [Rock, Paper, Scissors, Well](https://math.stackexchange.com/questions/410558/rock-paper-scissors-well)
 
 ## How to run..
 
@@ -46,7 +52,7 @@ You should specify a valid move in JSON format in the body of the request: for i
 "Throw": "paper"
 }`
 
-Valid moves are: "rock", "paper" and "scissors". (The API is case insensitive.)
+Valid moves are: "rock", "paper", "scissors" and "well". (The API is case insensitive.)
 
 ### How to run the app in the Docker image
 
