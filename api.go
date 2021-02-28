@@ -6,7 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"log"
-	"math/rand"
 	"net/http"
 	"strings"
 )
@@ -78,11 +77,4 @@ func MakeMoveFromJSON(reqJSON []byte) (Move, error) {
 		return Scissors, nil
 	}
 	return 0, fmt.Errorf("throw requested is not a valid move")
-}
-
-// ComputerChooseMove returns a randomly generated move according
-// a given strategy
-func ComputerChooseMove() Move {
-	// mixed strategy: equiprobable
-	return Move(rand.Intn(int(MovesLength)))
 }
