@@ -47,3 +47,19 @@ You should specify a valid move in JSON format in the body of the request: for i
 }`
 
 Valid moves are: "rock", "paper" and "scissors". (The API is case insensitive.)
+
+### How to run the app in the Docker image
+
+There is a provided Dockerfile to run the application in a docker container.
+
+To build a new image you can type this from the directory where the Dockerfile is:
+
+`docker build -t rpsw-game .`
+
+To run the docker container (you can also omit the `-it` option):
+
+`docker run -it -p 8080:8080 --name=rpsw-game rpsw-game`
+
+You can stop the container pressing ctrl+C or typing following from a new terminal tab:
+
+`docker stop rpsw-game`
