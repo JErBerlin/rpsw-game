@@ -10,6 +10,7 @@ const (
 	Rock Move = iota
 	Paper
 	Scissors
+	Well
 	MovesLength
 )
 
@@ -22,6 +23,8 @@ func (m Move) String() string {
 		return "paper"
 	case Scissors:
 		return "scissors"
+	case Well:
+		return "well"
 	}
 	return ""
 }
@@ -43,7 +46,6 @@ const (
 	Win
 )
 
-// String returns the string labels of enum ints
 func (o Outcome) String() string {
 	switch o {
 	case Lose:
@@ -60,9 +62,10 @@ func (o Outcome) String() string {
 // given moves of player one and two. We write the whole matrix although not needed.
 // (by design of the game, it is an anti-symmetric, hollow matrix)
 var OutcomeTable = [][]Outcome{
-	{Draw, Lose, Win},
-	{Win, Draw, Lose},
-	{Lose, Win, Draw},
+	{Draw, Lose, Win, Lose},
+	{Win, Draw, Lose, Win},
+	{Lose, Win, Draw, Lose},
+	{Win, Lose, Win, Draw},
 }
 
 // Game returns if Player one will lose, draw or win against player two given
