@@ -80,13 +80,11 @@ func MakeMoveFromJSON(reqJSON []byte) (game.Move, error) {
 	if err != nil {
 		return 0, err
 	}
-	switch strings.ToLower(throw.Throw) {
-	case "rock":
-		return game.Rock, nil
-	case "paper":
-		return game.Paper, nil
-	case "scissors":
-		return game.Scissors, nil
+	for i := 0; i < int(game.MovesLength); i++ {
+		m := game.Move(i)
+		if strings.ToLower(throw.Throw) == m.String() {
+			return m, nil
+		}
 	}
 	return 0, fmt.Errorf("throw requested is not a valid move")
 }
