@@ -1,5 +1,3 @@
-Rock, Paper, Scissors Game Server
-
 ## A server to play the classic Rock-Paper-Scissors game
 
 ### Overview
@@ -16,9 +14,27 @@ The rock, paper, scissors game:
 - Paper beats rock and well
 - Rock beats scissors
 
-### How to use it
+## How to run..
 
-### Accessing public and private API for posting, viewing and editing a single message
+If you have Go installed on your computer, you can just get this repository and run this game locally (you can install the go compiler here: https://golang.org/doc/install).
+
+###  the tests
+
+`go test`
+
+###  the compiler
+
+`go build`
+
+###  the program
+
+To run the game server, you can just type:
+
+`go run rpsw-game`
+
+(Observe that it will be listening at port 8080. If you get an error when starting the server because the port is already in use, try changing the constant value of the port in the `main.go` file)
+
+### How to send your move to the api
 
 When testing locally, the API will be listening and serving http at port 8080 of the localhost.
 
