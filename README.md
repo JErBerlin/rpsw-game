@@ -32,7 +32,7 @@ To run the game server, you can just type:
 
 `go run rpsw-game`
 
-(Observe that it will be listening at port 8080. If you get an error when starting the server because the port is already in use, try changing the constant value of the port in the `main.go` file)
+(Observe that it will be listening at port 8080. If you get an error when starting the server because the port is already in use, try changing the constant value of the port in the `api.go` file)
 
 ### How to send your move to the api
 
