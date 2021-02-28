@@ -1,4 +1,7 @@
-package main
+// game package provide the rules and the interface to play rock, paper, scissors.
+// It provides the mean to compute the outcome, given the moves of the two players.
+// You can use the functions in gameAI.go to choose a move for the computer.
+package game
 
 // Move codes the possible throws or moves of the game
 type Move int

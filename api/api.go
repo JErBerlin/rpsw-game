@@ -1,4 +1,6 @@
-package main
+// api package provides a the rest api to play the game rock, paper, scissors.
+// It provides a server start function and a handler for a play post request
+package api
 
 import (
 	"encoding/json"
@@ -6,8 +8,12 @@ import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"strings"
+	"time"
+
+	"rpsw-game/game"
 )
 
 const port = ":8080"
@@ -33,6 +39,12 @@ func StartGameServer() {
 	r.Run(port)
 }
 
+// InitAPI() makes initialization jobs
+func InitAPI() {
+	// we need to do that to use the library game later
+	rand.Seed(time.Now().Unix())
+}
+
 // PlayGame gets the post request, decodes and validates, calls the game and send back the outcome
 func PlayGame(c *gin.Context) {
 	body := c.Request.Body
@@ -49,8 +61,8 @@ func PlayGame(c *gin.Context) {
 		return
 	}
 
-	computerMove := ComputerChooseMove()
-	outcome := Game(playerMove, computerMove).String()
+	computerMove := game.ComputerChooseMove()
+	outcome := game.Game(playerMove, computerMove).String()
 
 	playOutcome := PlayOutcome{
 		outcome,
@@ -62,7 +74,7 @@ func PlayGame(c *gin.Context) {
 
 // MakeMoveFromJSON decodes and validates the move request
 // and returns a valid move or an error
-func MakeMoveFromJSON(reqJSON []byte) (Move, error) {
+func MakeMoveFromJSON(reqJSON []byte) (game.Move, error) {
 	var throw PlayRequest
 	err := json.Unmarshal(reqJSON, &throw)
 	if err != nil {
@@ -70,11 +82,11 @@ func MakeMoveFromJSON(reqJSON []byte) (Move, error) {
 	}
 	switch strings.ToLower(throw.Throw) {
 	case "rock":
-		return Rock, nil
+		return game.Rock, nil
 	case "paper":
-		return Paper, nil
+		return game.Paper, nil
 	case "scissors":
-		return Scissors, nil
+		return game.Scissors, nil
 	}
 	return 0, fmt.Errorf("throw requested is not a valid move")
 }
