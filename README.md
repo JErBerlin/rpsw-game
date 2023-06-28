@@ -1,20 +1,12 @@
-## A server to play the Rock-Paper-Scissors-Well game
+## A server to play the Rock-Paper-Scissors game
 
 ### Overview
 
-This is a game server that offers the possibility to play _rock, paper, scissors, well_ against the computer by means of a post request to its API
-
-The _rock, paper, scissors, well_ game is a variation of the classical _rock, paper, scissors_ game:
+This is a game server that offers the possibility to play _rock, paper, scissors_ against the computer by means of a post request to its API
 
 - Scissors beats paper
-- Paper beats rock and well
+- Paper beats rock
 - Rock beats scissors
-- Well beats rock and scissors
-
-You can read more about this game here:
-
-- [Circulant games](https://link.springer.com/article/10.1007/s11238-014-9478-4)
-- [Rock, Paper, Scissors, Well](https://math.stackexchange.com/questions/410558/rock-paper-scissors-well)
 
 ## How to run..
 
@@ -34,7 +26,7 @@ If you would not like to install a Go compiler, please read further in the secti
 
 To run the game server, you can just type:
 
-`go run rpsw-game`
+`go run rps-game`
 
 (Observe that it will be listening at port 8080. If you get an error when starting the server because the port is already in use, try changing the constant value of the port in the `api.go` file)
 
@@ -50,7 +42,7 @@ You should specify a valid move in JSON format in the body of the request: for i
 "Throw": "paper"
 }`
 
-Valid moves are: "rock", "paper", "scissors" and "well". (The API is case insensitive.)
+Valid moves are: "rock", "paper", "scissors" (The API is case insensitive.)
 
 You can use a command-line tool like `curl`:
 
@@ -64,12 +56,12 @@ There is a provided Dockerfile to run the application in a docker container.
 
 To build a new image you can type this from the directory where the Dockerfile is:
 
-`docker build -t rpsw-game .`
+`docker build -t rps-game .`
 
 To run the docker container (you can also omit the `-it` option):
 
-`docker run -it -p 8080:8080 --name=rpsw-game rpsw-game`
+`docker run -it -p 8080:8080 --name=rps-game rps-game`
 
 You can stop the container pressing ctrl+C or typing following from a new terminal tab:
 
-`docker stop rpsw-game`
+`docker stop rps-game`
