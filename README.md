@@ -52,6 +52,12 @@ You should specify a valid move in JSON format in the body of the request: for i
 
 Valid moves are: "rock", "paper", "scissors" and "well". (The API is case insensitive.)
 
+You can use a command-line tool like `curl`:
+
+`curl -X POST -H "Content-Type: application/json" -d '{"Throw": "paper"}' http://localhost:8080/play`
+
+You would just need to replace `"paper"` with whatever move you want to make. The response from the server will appear in your terminal after you send the request
+
 ### How to run the app from the Docker image
 
 There is a provided Dockerfile to run the application in a docker container.
