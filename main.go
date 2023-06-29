@@ -1,7 +1,7 @@
 package main
 
 import (
-	"rpsw-game/api"
+	"rps-game/api"
 )
 
 func main() {

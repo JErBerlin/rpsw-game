@@ -14,7 +14,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"rpsw-game/game"
+	"rps-game/game"
 )
 
 const port = ":8080"

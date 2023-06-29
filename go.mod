@@ -1,4 +1,4 @@
-module rpsw-game
+module rps-game
 
 go 1.14
 
