@@ -24,7 +24,7 @@ If you would not like to install a Go compiler, please read further in the secti
 
 ###  the tests
 
-`go test`
+`go test ./...`
 
 ###  the compiler
 
